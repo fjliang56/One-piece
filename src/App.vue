@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/doc">Doc</router-link>
-  </div>
   <router-view />
 </template>
 
-<script>
+<script lang="ts">
+import { provide, ref } from "vue";
+
 export default {
   name: "App",
+  setup() {
+    const asideVisible = ref(false);
+    provide("asideVisible", asideVisible);
+  },
 };
 </script>
