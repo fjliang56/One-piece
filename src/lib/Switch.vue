@@ -4,7 +4,6 @@
   </button>
 </template>
 <script lang="ts">
-import { ref } from "vue";
 export default {
   props: {
     value: Boolean,
@@ -36,26 +35,26 @@ button {
     background: white;
     border-radius: $h2/2;
     transition: all 250ms;
-    &.checked {
-      background: #1890ff;
-      > span {
-        left: calc(100% - #{$h2} - 2px);
-      }
+  }
+  &.checked {
+    background: #1890ff;
+    > span {
+      left: calc(100% - #{$h2} - 2px);
     }
+  }
 
-    &:focus {
-      outline: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    > span {
+      width: $h2 + 4px;
     }
-    &:active {
-      > span {
-        width: $h2 + 4px;
-      }
-    }
-    &.checked:active {
-      > span {
-        width: $h2 + 4px;
-        margin-left: -4px;
-      }
+  }
+  &.checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
     }
   }
 }
