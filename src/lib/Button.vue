@@ -1,9 +1,10 @@
 <template>
-  <button class="hzw-button" :class="{ [`hzw-theme-${theme}`]: theme }">
+  <button class="hzw-button" :class="classes">
     <slot />
   </button>
 </template>
 <script lang="ts">
+import { computed } from "vue";
 export default {
   props: {
     theme: {
@@ -14,6 +15,15 @@ export default {
       type: String,
       default: "normal",
     },
+  },
+  setup(props) {
+    const { theme, size } = props;
+    const classes = computed(() => {
+      return {
+        [`hzw-theme-${theme}`]: theme,
+        [`hzw-size-${size}`]: size,
+      };
+    });
   },
 };
 </script>
@@ -67,6 +77,18 @@ $radius: 4px;
     &:hover,
     &:focus {
       background: darken(white, 5%);
+    }
+  }
+  &.hzw-theme-button {
+    &.hzw-size-big {
+      font-size: 24px;
+      height: 48px;
+      padding: 0 16px;
+    }
+    &.hzw-size-small {
+      font-size: 12px;
+      height: 20px;
+      padding: 0 4px;
     }
   }
 }
