@@ -139,7 +139,7 @@ $red: red;
       color: $red;
       &:hover,
       &:focus {
-        color: darken(&red, 10%);
+        color: darken($red, 10%);
       }
     }
   }
