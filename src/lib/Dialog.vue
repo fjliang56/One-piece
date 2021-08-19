@@ -1,19 +1,26 @@
 <template>
-  <div class="hzw-dialog-overlay"></div>
-  <div class="hzw-dialog-wrapper">
-    <div class="hzw-dialog">
-      <header>
-        <slot name="title" /><span class="hzw-dialog-close"></span>
-      </header>
-      <main>
-        <slot name="content" />
-      </main>
-      <footer>
-        <Botton level="main">OK</Botton>
-        <Botton>Cancel</Botton>
-      </footer>
-    </div>
-  </div>
+  <template v-if="visible">
+    <Teleport to="body">
+      <div class="hzw-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="hzw-dialog-wrapper">
+        <div class="hzw-dialog">
+          <header>
+            <slot name="title" /><span
+              @click="close"
+              class="hzw-dialog-close"
+            ></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Botton level="main" @click="ok">OK</Botton>
+            <Botton @click="cancel">Cancel</Botton>
+          </footer>
+        </div>
+      </div>
+    </Teleport>
+  </template>
 </template>
 
 <script lang="ts">
