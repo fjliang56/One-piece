@@ -2,10 +2,11 @@
   <div class="hzw-dialog-overlay"></div>
   <div class="hzw-dialog-wrapper">
     <div class="hzw-dialog">
-      <header>标题<span class="hzw-dialog-close"></span></header>
+      <header>
+        <slot name="title" /><span class="hzw-dialog-close"></span>
+      </header>
       <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
+        <slot name="content" />
       </main>
       <footer>
         <Botton level="main">OK</Botton>
