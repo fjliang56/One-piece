@@ -12,15 +12,19 @@
       </div>
     </div>
     <div class="hzw-tabs-content">
-      {{ current }}
-      <component class="hzw-tabs-content-item" :is="current" />
+      <component
+        class="hzw-tabs-content-item"
+        :class="{ selected: c.props.tltle === selected }"
+        v-for="c in defaults"
+        :is="c"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from "./Tabs.vue";
-import { compited, computed } from "vue";
+import { computed } from "vue";
 
 export default {
   props: {
@@ -85,6 +89,14 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
