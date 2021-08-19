@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import Tab from "./Tabs.vue";
-import { computed, ref, onMounted, onUpdated, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 
 export default {
   props: {
@@ -57,12 +57,6 @@ export default {
         throw new Error("Tabs 子标签必须是 Tab");
       }
     });
-    const current = computed(() => {
-      console.log("重新 return");
-      return defaults.filter((tag) => {
-        return tag.props.title === props.selected;
-      })[0];
-    });
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
@@ -72,7 +66,6 @@ export default {
     return {
       defaults,
       titles,
-      current,
       select,
       selectedItem,
       indicator,
