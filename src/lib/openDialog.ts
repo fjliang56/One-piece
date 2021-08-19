@@ -6,13 +6,14 @@ export const openDialog = (options) => {
   const div = document.createElement("div");
   document.body.appendChild(div);
   const close = () => {
+    //@ts-ignore
     app.unmount(div);
     div.remove();
   };
   const app = createApp({
     render() {
       return h(
-        Diglog,
+        Dialog,
         {
           visible: true,
           "onUpdate: visible": (newVisible) => {
