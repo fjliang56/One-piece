@@ -22,11 +22,11 @@ export default {
     },
     disabled: {
       type: Boolean,
-      default: "false",
+      default: false,
     },
     loading: {
       type: Boolean,
-      default: "false",
+      default: false,
     },
   },
   setup(props) {
@@ -35,9 +35,10 @@ export default {
       return {
         [`hzw-theme-${theme}`]: theme,
         [`hzw-size-${size}`]: size,
-        [`hzw-size-${level}`]: level,
+        [`hzw-level-${level}`]: level,
       };
     });
+    return { classes };
   },
 };
 </script>
@@ -129,7 +130,7 @@ $grey: grey;
     }
   }
   &.hzw-theme-link {
-    &hzw-level-danger {
+    &.hzw-level-danger {
       color: $red;
       &:hover,
       &:focus {
@@ -138,7 +139,7 @@ $grey: grey;
     }
   }
   &.hzw-theme-text {
-    &hzw-level-main {
+    &.hzw-level-main {
       color: $blue;
       &:hover,
       &:focus {
