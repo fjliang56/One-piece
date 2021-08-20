@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import md from "../mardown/intro.md";
+import md from "../markdown/intro.md";
 
 export default {
   data() {
