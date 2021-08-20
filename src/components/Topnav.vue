@@ -1,10 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-king"></use>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
@@ -15,7 +15,7 @@
       class="toggleAsides"
       @click="toggleAside"
     >
-      <use xlink:href="#icon-menu"></use>
+      <use xlink:href="#icon-menu1"></use>
     </svg>
   </div>
 </template>
@@ -72,7 +72,6 @@ $color: #007974;
     display: none;
     width: 32px;
     height: 32px;
-    background: fade-out(black, 0.9);
     position: absolute;
     left: 16px;
     top: 50%;
