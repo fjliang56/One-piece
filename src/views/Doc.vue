@@ -74,7 +74,7 @@ export default {
 aside {
   background: lightblue;
   width: 150px;
-  padding: 16px;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -85,7 +85,14 @@ aside {
   }
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        padding: 4px 16px;
+        display: block;
+        text-decoration: none;
+      }
+      .router-link-active {
+        background: white;
+      }
     }
   }
 }
