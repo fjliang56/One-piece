@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import Tab from "./Tabs.vue";
+import Tab from "./Tab.vue";
 import { computed, ref, watchEffect, onMounted } from "vue";
 
 export default {
