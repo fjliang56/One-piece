@@ -3,7 +3,9 @@
     </demo>
 <template>
   <div>
-    <Button @click="toggle">打开对话框</Button>
+    <Button theme="primary" size="small" contextmenu="" @click="toggle"
+      >打开对话框</Button
+    >
     <Dialog
       v-model:visible="visible"
       :closeOnClickOverlay="false"

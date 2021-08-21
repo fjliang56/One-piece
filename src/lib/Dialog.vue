@@ -14,8 +14,8 @@
             <slot name="content" />
           </main>
           <footer>
-            <Botton level="main" @click="ok">OK</Botton>
-            <Botton @click="cancel">Cancel</Botton>
+            <Botton theme="primary" size="small" @click="ok">OK</Botton>
+            <Botton @click="cancel" size="small">Cancel</Botton>
           </footer>
         </div>
       </div>
@@ -28,20 +28,28 @@ import Button from "./Button.vue";
 
 export default {
   props: {
+    width: {
+      type: String,
+      default: "60%",
+    },
+    top: {
+      type: String,
+      default: "130px",
+    },
     visible: {
       type: Boolean,
-      defaule: false,
+      default: false,
     },
     closeOnClickOverlay: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     ok: {
       type: Function,
     },
     cancel: {
-        type: Function
-    }
+      type: Function,
+    },
   },
   components: {
     Button,
@@ -49,6 +57,10 @@ export default {
   setup(props, context) {
     const close = () => {
       context.emit("update:visible", false);
+    };
+    const styles = {
+      minWidth: props.width,
+      top: props.top,
     };
     const onClickOverlay = () => {
       if (props.closeOnClickOverlay) {
@@ -69,6 +81,7 @@ export default {
       onClickOverlay,
       ok,
       cancel,
+      styles,
     };
   },
 };
@@ -145,7 +158,7 @@ $border-color: #d9d9d9;
     }
 
     &::after {
-        transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 }
