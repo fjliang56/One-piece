@@ -5,7 +5,7 @@
   <div>
     <Button @click="toggle">打开对话框</Button>
     <Dialog
-      v-model:visible="x"
+      v-model:visible="visible"
       :closeOnClickOverlay="false"
       :ok="f1"
       :cancel="f2"
@@ -32,19 +32,35 @@ export default {
     Button,
   },
   setup() {
-    const x = ref(false);
+    const visible = ref(false);
     const toggle = () => {
-      x.value = !x.value;
+      visible.value = !visible.value;
     };
     const f1 = () => {
       return false;
     };
     const f2 = () => {};
+    const showDialog = () => {
+      openDialog({
+        title: "标题",
+        content: "这里是内容",
+        visible: true,
+        closeOnClickOverlay: false,
+        ok: () => {
+          console.log("确认");
+          return false;
+        },
+        cancel: () => {
+          console.log("取消");
+        },
+      });
+    };
     return {
-      x,
+      visible,
       toggle,
       f1,
       f2,
+      showDialog,
     };
   },
 };

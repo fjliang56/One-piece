@@ -9,7 +9,6 @@
 
 <script lang="ts">
 import Button from "../lib/Button.vue";
-import { ref, h } from "vue";
 import { openDialog } from "../lib/openDialog";
 export default {
   components: {
@@ -18,12 +17,15 @@ export default {
   setup() {
     const showDialog = () => {
       openDialog({
-        title: h("strong", {}, "标题"),
+        title: "标题",
         content: "你好",
-        ok() {
+        visible: true,
+        closeOnClickOverlay: false,
+        ok: () => {
           console.log("ok");
+          return false;
         },
-        cancel() {
+        cancel: () => {
           console.log("cancel");
         },
       });
