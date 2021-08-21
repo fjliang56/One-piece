@@ -3,6 +3,7 @@
     <h1>Switch 组件展示</h1>
     <Demo :component="Switch1Demo" />
     <Demo :component="Switch2Demo" />
+    <Attr :columns="columns" :data="data"></Attr>
   </div>
 </template>
 
@@ -11,11 +12,31 @@ import { ref } from "vue";
 import Switch1Demo from "./Switch1.demo.vue";
 import Switch2Demo from "./Switch2.demo.vue";
 import Demo from "./Demo.vue";
+import { columns } from "../lib/data";
+import DocTitle from "./DocTitle.vue";
+import Markdown from "./Markdown.vue";
+import Attr from "./Attr.vue";
 
 export default {
-  components: { Demo },
+  components: { Demo, DocTitle, Markdown, Attr },
   setup() {
-    return { Switch1Demo, Switch2Demo };
+    const data = ref([
+      {
+        params: "value",
+        desc: "是否选中",
+        type: "boolean",
+        select: "false / true",
+        default: "false",
+      },
+      {
+        params: "disabled",
+        desc: "禁止选中",
+        type: "boolean",
+        select: "null",
+        default: "false",
+      },
+    ]);
+    return { Switch1Demo, Switch2Demo, data, columns };
   },
 };
 </script>
