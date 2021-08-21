@@ -4,9 +4,9 @@
       <Topnav />
       <div class="banner">
         <h1>HZW UI</h1>
-        <h2>一个好用的 UI 框架</h2>
+        <h1>藏着大秘宝的 UI</h1>
         <p class="actions">
-          <a href="https://github.com">Github</a>
+          <a href="https://github.com/fjliang56">Github</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
@@ -46,14 +46,14 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$green: #02bcb0;
+$green: rgb(255, 82, 1);
 $border-radius: 4px;
-$color: #007974;
+$color: black;
 .topnavAndBanner {
   background: linear-gradient(
     145deg,
-    rgba(227, 255, 253, 1) 0%,
-    rgba(183, 233, 230, 1) 100%
+    rgb(34, 188, 235) 0%,
+    rgb(20, 85, 224) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
 }
@@ -120,6 +120,10 @@ $color: #007974;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  > .hzw-title {
+    font: black;
+  }
   > .actions {
     padding: 8px 0;
     a {

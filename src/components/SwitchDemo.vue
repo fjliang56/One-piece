@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Switch 组件展示</h1>
+    <doc-title>Switch 组件展示</doc-title>
     <Demo :component="Switch1Demo" />
     <Demo :component="Switch2Demo" />
     <Attr :columns="columns" :data="data"></Attr>
